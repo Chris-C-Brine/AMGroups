@@ -6,27 +6,27 @@ Drop AMGroups.php into Larave's Traits folder (in V5.4 = app\Traits )
 Include the AMGroups trait into the models you'd like to use Accessor/Mutator Groups
 
 For Accessor/Mutator Groups:
-    - Create a 2 dimensional array with the variable name $custom_groups in the model. (examples below)
-        - The keys of this array will be used as the partial function name (converted to studly casing)
-        - The values of those keys will be an array holding the indiviual attribute names to be accessed/mutated with group functions
-        - ex: `$custom_groups = [ 'partial_function_name1' => ['attribute1', 'attribute2'] ];`
-    - Accessors
-        - Function name = get + the key in studly case + Accessor
-        - The function will receive the single input of the attribute value
-        - ex: `protected function getPartialFunctionName1Accessor($value) { return $value + 1; }`
-    - Mutators
-        - Function name = set + the key in studly case + Mutator
-        - The function will recieve 2 inputs, the key name followed by the attibute value
-        - ex: `protected function setPartialFunctionName1Mutator($key, $value) { $this->attributes[$key] = $value - 1; }`
+- Create a 2 dimensional array with the variable name $custom_groups in the model. (examples below)
+    - The keys of this array will be used as the partial function name (converted to studly casing)
+    - The values of those keys will be an array holding the indiviual attribute names to be accessed/mutated with group functions
+    - ex: `$custom_groups = [ 'partial_function_name1' => ['attribute1', 'attribute2'] ];`
+- Accessors
+    - Function name = get + the key in studly case + Accessor
+    - The function will receive the single input of the attribute value
+    - ex: `protected function getPartialFunctionName1Accessor($value) { return $value + 1; }`
+- Mutators
+    - Function name = set + the key in studly case + Mutator
+    - The function will recieve 2 inputs, the key name followed by the attibute value
+    - ex: `protected function setPartialFunctionName1Mutator($key, $value) { $this->attributes[$key] = $value - 1; }`
 
 Additional functions require that the Laravel App has a Cache Driver set up.
-    - Adds these function on to all models that use this trait:
-        - tableColumns($with_primary_key)
-            - Cache (if not alreay cached) and returns an array containing all the table attribute names (without the primary key unless true is passed)
-        - tableReset()
-            - Clears and updates the cached table columns
-        - Static function Static()
-            - Returns result of a method on a new object as a static result
+- Adds these function on to all models that use this trait:
+    - tableColumns($with_primary_key)
+        - Cache (if not alreay cached) and returns an array containing all the table attribute names (without the primary key unless true is passed)
+    - tableReset()
+        - Clears and updates the cached table columns
+    - Static function Static()
+        - Returns result of a method on a new object as a static result
 
 ## Example:
 ```PHP
