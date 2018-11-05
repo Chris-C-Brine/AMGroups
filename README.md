@@ -19,14 +19,14 @@ For Accessor/Mutator Groups:
     - The function will recieve 2 inputs, the key name followed by the attibute value
     - ex: `protected function setPartialFunctionName1Mutator($key, $value) { $this->attributes[$key] = $value - 1; }`
 
-Additional functions require that the Laravel App has a Cache Driver set up.
-- Adds these function on to all models that use this trait:
+Additional Functions:
+- Static function Static($method_name)
+    - Returns result of a method on a new object as a static result. Included mainly for the following two functions:
+- Requires that the Laravel App has a Cache Driver set up.
     - tableColumns($with_primary_key)
         - Cache (if not alreay cached) and returns an array containing all the table attribute names (without the primary key unless true is passed)
     - tableReset()
         - Clears and updates the cached table columns
-    - Static function Static()
-        - Returns result of a method on a new object as a static result
 
 ## Example:
 ```PHP
