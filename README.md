@@ -28,7 +28,7 @@ Additional Functions:
     - tableReset()
         - Clears and updates the cached table columns
 
-## Example:
+## Example: (most of these can already be accomplished by the built in casting methods, there just here for examples)
 ```PHP
 
 namespace App\Models;
